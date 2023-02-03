@@ -14,5 +14,6 @@ namespace NewRepo.Models
         [JsonIgnore]
         public string PasswordHash { get; set; }
         public Role Role { get; set; }
+        public Guid? UserId { get; set; }
     }
 }

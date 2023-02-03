@@ -6,7 +6,10 @@ namespace NewRepo.Models
 {
 	public class Tren: BaseEntity
 	{
-		public int Id { get; set; }
-		
-	}
+        public Guid? TrenId { get; set; }
+        public int Vagoane { get; set; }
+        public int locuri_per_vagon { get; set; }
+        public string loc_plecare { get; set; }
+        public string loc_sosire { get; set; }
+    }
 }

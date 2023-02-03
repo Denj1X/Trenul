@@ -10,7 +10,7 @@ namespace NewRepo.Models
         public User Email { get; set; }
         public User UserName { get; set; }
         [JsonIgnore]
-        public Guid? ClientId { get; set; }
+        public Guid? UserId { get; set; }
         public string PasswordHash { get; set; }
     }
 }
