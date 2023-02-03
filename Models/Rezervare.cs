@@ -9,6 +9,6 @@ namespace NewRepo.Models
         public string Description { get; set; }
         public bool IsConfirmed { get; set; }
         public User? Client { get; set; }
-        public Guid? ClientId { get; set; }
+        public int RezervareId { get; set; }
     }
 }
