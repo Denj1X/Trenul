@@ -16,7 +16,7 @@ namespace NewRepo.Repositories.UserRepository
 
         }
 
-        public IEnumerable<User> FindAllUsers()
+        public async IEnumerable<User> FindAllUsers()
         {
             var empls = _table.ToList();
             return empls.Where(o => o.Role == Role.User);
