@@ -56,7 +56,7 @@ namespace NewRepo.Repositories.GenericRepository
             return _table.Find(id);
         }
 
-        public async Task<TEntity> FindByIdAsync(object id)
+        public async Task<TEntity?> FindByIdAsync(object id)
         {
             return await _table.FindAsync(id);
         }
@@ -72,6 +72,16 @@ namespace NewRepo.Repositories.GenericRepository
                 Console.WriteLine(ex.Message);
             }
             return false;
+        }
+
+        public async IAsyncEnumerable<TEntity> GetAsync()
+        {
+            var location = await _table.AsNoTracking().ToListAsync();
+
+            foreach (var entity in location)
+            {
+                yield return entity;
+            }
         }
     }
 }

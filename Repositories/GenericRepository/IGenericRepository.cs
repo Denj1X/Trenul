@@ -15,8 +15,9 @@ namespace NewRepo.Repositories.GenericRepository
         void DeleteRange(IEnumerable<TEntity> entities);
 
         TEntity FindById(object id);
-        Task<TEntity> FindByIdAsync(object id);
+        Task<TEntity?> FindByIdAsync(object id);
 
         Task<bool> SaveAsync();
+        IAsyncEnumerable<TEntity> GetAsync();
     }
 }

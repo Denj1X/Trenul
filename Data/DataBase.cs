@@ -16,18 +16,30 @@ namespace NewRepo.Data
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			///Many-to-Many relation
-			modelBuilder.Entity<>()
-				.HasKey(p => new { });
+			modelBuilder.Entity<Bilet>()
+				.HasKey(p => new {p.RezervareId, p.TrenId });
 
-			modelBuilder.Entity<>()
-				.HasOne<>(s => s.)
-				.WithMany(p => p.)
-				.HasForeignKey(s => s.);
+			modelBuilder.Entity<Bilet>()
+				.HasOne<Rezervare>(s => s.Rezervare)
+				.WithMany(p => p.Bilete)
+				.HasForeignKey(s => s.RezervareId);
 
-            modelBuilder.Entity<>()
-                .HasOne<>(o => o.)
-                .WithMany(p => p.)
-                .HasForeignKey(o => o.);
+            modelBuilder.Entity<Bilet>()
+                .HasOne<Tren>(o => o.Tren)
+                .WithMany(p => p.Bilete)
+                .HasForeignKey(o => o.TrenId);
+
+			//One-to-One
+			modelBuilder.Entity<User>()
+				.HasOne(c => c.Cont)
+				.WithOne()
+				.HasForeignKey(c => c.UserId);
+
+			//One-to-Many
+			modelBuilder.Entity<>()
+				.HasOne()
+				.WithMany()
+				.HasForeignKey();
 
             base.OnModelCreating(modelBuilder);
         }
