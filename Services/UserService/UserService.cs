@@ -50,6 +50,26 @@ namespace NewRepo.Services.UserService
             await _userRepository.SaveAsync();
         }
 
+        public async Task CreateEmloyee(ContRequestDTO newUser)
+        {
+            var newDBUser = _mapper.Map<User>(newUser);
+            newDBUser.PasswordHash = BCryptNet.HashPassword(newUser.Password);
+            newDBUser.Role = Role.Employee;
+
+            await _userRepository.CreateAsync(newDBUser);
+            await _userRepository.SaveAsync();
+        }
+
+        public async Task CreateUser(ContRequestDTO newUser)
+        {
+            var newDBUser = _mapper.Map<User>(newUser);
+            newDBUser.PasswordHash = BCryptNet.HashPassword(newUser.Password);
+            newDBUser.Role = Role.User;
+
+            await _userRepository.CreateAsync(newDBUser);
+            await _userRepository.SaveAsync();
+        }
+
         public async Task DeleteByEmailAsync(string email)
         {
             var user = _userRepository.FindByEmail(email);
