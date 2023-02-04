@@ -8,6 +8,7 @@ namespace NewRepo.Models
 	{
         public string Description { get; set; }
         public bool IsConfirmed { get; set; }
+        public User UserId { get; set; }
         public User FirstName { get; set; }
         public User LastName { get; set; }
         public Guid? RezervareId { get; set; }

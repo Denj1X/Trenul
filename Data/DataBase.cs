@@ -32,14 +32,13 @@ namespace NewRepo.Data
 			//One-to-One
 			modelBuilder.Entity<User>()
 				.HasOne(c => c.Cont)
-				.WithOne()
+				.WithOne(u => u.Email)
 				.HasForeignKey(c => c.UserId);
 
 			//One-to-Many
-			modelBuilder.Entity<>()
-				.HasOne()
-				.WithMany()
-				.HasForeignKey();
+			modelBuilder.Entity<User>()
+				.HasMany(r=> r.Reserv)
+				.WithOne(u => u.UserId)
 
             base.OnModelCreating(modelBuilder);
         }
