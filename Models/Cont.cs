@@ -6,11 +6,11 @@ using NewRepo.Models.Enums;
 namespace NewRepo.Models
 {
 	public class Cont: BaseEntity
-	{
-        public User Email { get; set; }
-        public User UserName { get; set; }
+	{   
+        public string UserName { get; set; }
         [JsonIgnore]
         public Guid? UserId { get; set; }
+        public Role Role { get; set; }
         public string PasswordHash { get; set; }
     }
 }

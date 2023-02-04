@@ -10,10 +10,10 @@ namespace NewRepo.Models
 		public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
-        public string UserName { get; set; }
-        [JsonIgnore]
-        public string PasswordHash { get; set; }
+        public string nPhone { get; set; }
+        public Cont UserName { get; set; }
         public Role Role { get; set; }
-        public Guid? UserId { get; set; }
+        public Cont UserId { get; set; }
+        public List<Rezervare> rez { get; set; } = new List<Rezervare>();
     }
 }

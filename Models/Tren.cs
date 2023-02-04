@@ -11,5 +11,6 @@ namespace NewRepo.Models
         public int locuri_per_vagon { get; set; }
         public string loc_plecare { get; set; }
         public string loc_sosire { get; set; }
+        public List<bilet> bilete { get; set; } = new List<bilet>();
     }
 }

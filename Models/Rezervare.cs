@@ -8,7 +8,9 @@ namespace NewRepo.Models
 	{
         public string Description { get; set; }
         public bool IsConfirmed { get; set; }
-        public User? Client { get; set; }
+        public User FirstName { get; set; }
+        public User LastName { get; set; }
         public Guid? RezervareId { get; set; }
+        public List<Bilet> bilete { get; set; } = new List<bilet>();
     }
 }
