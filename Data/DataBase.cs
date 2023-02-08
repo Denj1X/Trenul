@@ -37,8 +37,8 @@ namespace NewRepo.Data
 
 			//One-to-Many
 			modelBuilder.Entity<User>()
-				.HasMany(r=> r.Reserv)
-				.WithOne(u => u.UserId)
+				.HasMany(r => r.Reserv)
+				.WithOne(u => u.UserId);
 
             base.OnModelCreating(modelBuilder);
         }

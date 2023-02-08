@@ -4,8 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NuGet.Protocol.Plugins;
-using BCryptNet = BCrypt.Net.BCrypt;
 using NewRepo.Helpers.Attributes;
 using NewRepo.Models;
 using NewRepo.Models.DTOs.UserDTO;

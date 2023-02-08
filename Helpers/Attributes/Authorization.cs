@@ -1,24 +1,24 @@
 ﻿using System;
-using ASP_Project.Models;
-using ASP_Project.Models.Base.Roles;
+using NewRepo.Models;
+using NewRepo.Models.Base;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace NewRepo.Helpers.Attributes
 {
-	public class Authorization: Attribute, IAuthorizationFilter
-	{
-		private readonly ICollection<Role> _roles;
-		public Authorization(params Role[] roles)
+    public class Authorization : Attribute, IAuthorizationFilter
+    {
+        private readonly ICollection<Role> _roles;
+        public Authorization(params Role[] roles)
         {
             _roles = roles;
         }
 
         public void OnAuthorization(AuthorizationFilterContext context)
         {
-            var unauthorizedStatusObject = new JsonResult(new { Message = "Unauthorzed" })
-            {   StatusCode = StatusCodes.Status401Unauthorized };
+            var unauthorizedStatusObject = new JsonResult(new { Message = "Unauthorized" })
+            { StatusCode = StatusCodes.Status401Unauthorized };
 
             if (_roles == null)
             {
@@ -31,4 +31,5 @@ namespace NewRepo.Helpers.Attributes
                 context.Result = unauthorizedStatusObject;
             }
         }
+    }
 }
