@@ -45,7 +45,7 @@ namespace NewRepo.Repositories.TrenRepository
         {
             return await _context.Trenuri
                 .Include(t => t.TrenId)
-                .Where(t => t.plecare == plecare)
+                .Where(t => t.loc_plecare == plecare)
                 .ToListAsync();
         }
 
